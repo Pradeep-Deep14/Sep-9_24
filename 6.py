@@ -2,15 +2,20 @@ L=[1,1,[2,3,3,4,5],[5,5,6,7,8],9,10]
 
 #Nested to flattened list without duplicates
 
-def flattened_list_without_duplicates(L):
+
+def nested_to_flattened_without_duplicates(L):
     seen=set()
-    flattened=[]
+    Flattened=[]
     for i in L:
         if isinstance(i,list):
             for item in i:
                 if item not in seen:
-                    flattened.append(item)
+                    Flattened.append(item)
                     seen.add(item)
-            return flattened
+        else:
+            if i not in seen:
+                Flattened.append(i)
+                seen.add(i)
+    return Flattened
 
-print(flattened_list_without_duplicates(L))
+print(nested_to_flattened_without_duplicates(L))
